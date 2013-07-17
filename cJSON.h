@@ -63,7 +63,7 @@ extern void cJSON_InitHooks(cJSON_Hooks* hooks);
 
 
 /* Supply a block of JSON, and this returns a cJSON object you can interrogate. Call cJSON_Delete when finished. */
-extern cJSON *cJSON_Parse(const char *value);
+extern cJSON *cJSON_Parse(const char *value,const char **ep);
 /* Render a cJSON entity to text for transfer/storage. Free the char* when finished. */
 extern char  *cJSON_Print(cJSON *item);
 /* Render a cJSON entity to text for transfer/storage without any formatting. Free the char* when finished. */
@@ -121,7 +121,7 @@ need to be released. With recurse!=0, it will duplicate any children connected t
 The item->next and ->prev pointers are always zero on return from Duplicate. */
 
 /* ParseWithOpts allows you to require (and check) that the JSON is null terminated, and to retrieve the pointer to the final byte parsed. */
-extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated);
+extern cJSON *cJSON_ParseWithOpts(const char *value,const char **return_parse_end,int require_null_terminated,const char **ep);
 
 /* Macros for creating things quickly. */
 #define cJSON_AddNullToObject(object,name)		cJSON_AddItemToObject(object, name, cJSON_CreateNull())
