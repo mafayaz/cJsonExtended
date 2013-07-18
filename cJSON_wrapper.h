@@ -1,5 +1,5 @@
-#ifndef __CJSON_WRAPPER_HPP__
-#define __CJSON_WRAPPER_HPP__
+#ifndef __CJSON_WRAPPER_H__
+#define __CJSON_WRAPPER_H__
 
 #include <cstdlib>
 #include <string>

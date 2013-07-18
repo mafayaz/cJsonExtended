@@ -1,17 +1,11 @@
-CC=gcc
-CFLAGS=-c -Wall
-LDFLAGS= -lm
-SOURCES=test_cJSON.c cJSON.c
-OBJECTS=$(SOURCES:.c=.o)
-EXECUTABLE=test_cJSON
 
-all: $(SOURCES) $(EXECUTABLE)
+all: test_cJSON test
 	
-$(EXECUTABLE): $(OBJECTS) 
-	$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
+test_cJSON: test_cJSON.c cJSON.c
+	gcc -Wall test_cJSON.c cJSON.c -o test_cJSON -lm
 
-.cpp.o:
-	$(CC) $(CFLAGS) $< -o $@
+test: test.cpp cJSON_wrapper.cpp cJSON.c
+	g++ -Wall test.cpp cJSON_wrapper.cpp cJSON.c -o test
 
 clean:
-	rm -f *.o test_cJSON
+	rm -f test_cJSON test

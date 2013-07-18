@@ -24,18 +24,13 @@
 #include <stdlib.h>
 #include "cJSON.h"
 
-#define ERROR_BUFFER_SIZE 1024
-
 /* Parse text to JSON, then render back to text, and print! */
 void doit(char *text)
 {
-	char *out, error[ERROR_BUFFER_SIZE];
-	cJSON *json;
-	const char *ep = &error[0];
-
+	char *out; const char *ep = NULL; cJSON *json;
 	
 	json=cJSON_Parse(text, &ep);
-	if (!json) {printf("Error before: [%s]\n",error);}
+	if (!json) {printf("Error before: [%s]\n",ep);}
 	else
 	{
 		out=cJSON_Print(json);
