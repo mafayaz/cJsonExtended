@@ -6,6 +6,6 @@ The project is to extend already existing cJSON "http://sourceforge.net/projects
 How to Build
 =============
 
-$ cd {directory where the project is}
+$ cd {cJSONExtended Project Directory}
 $ make
 
